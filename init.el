@@ -46,8 +46,6 @@
 
 ;; load-path setting
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
-(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-	(normal-top-level-add-subdirs-to-load-path))
 
 ;; js2-mode.el
 (autoload 'js2-mode "js2" nil t)
