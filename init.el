@@ -7,18 +7,10 @@
           (delete-buffer buffer)))))
 
 
-(when (eq window-system 'mac)
-  (add-hook 'window-setup-hook
-            (lambda ()
-              (set-frame-parameter nil 'fullscreen 'fullboth)
-              )))
-
-
-(defun mac-toggle-max-window ()
-  (interactive)
-  (if (frame-parameter nil 'fullscreen)
-      (set-frame-parameter nil 'fullscreen nil)
-    (set-frame-parameter nil 'fullscreen 'fullboth)))
+(add-hook 'window-setup-hook
+	  (lambda ()
+	    (ns-toggle-fullscreen)
+	    ))
 
 ;; Carbon Emacsの設定で入れられた. メニューを隠したり．
 (custom-set-variables
@@ -50,3 +42,7 @@
 ;; js2-mode.el
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;; graphviz-dot-mode.el
+(autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.dot$" . graphviz-dot-mode))
