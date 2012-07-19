@@ -12,6 +12,9 @@
 	    (ns-toggle-fullscreen)
 	    ))
 
+;; inputメソッドの指定
+(setq default-input-method "MacOSX")
+
 ;; Carbon Emacsの設定で入れられた. メニューを隠したり．
 (custom-set-variables
  '(display-time-mode t)
@@ -46,3 +49,7 @@
 ;; graphviz-dot-mode.el
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.dot$" . graphviz-dot-mode))
+
+;; markdown-mode.el
+(autoload 'markdown-mode "markdown-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
