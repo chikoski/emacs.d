@@ -1,7 +1,5 @@
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-initialize)
+(require 'cask)
+(cask-initialize)
 
 ;; start server for emacsclient use
 (server-start)
@@ -94,7 +92,6 @@
 
 
 ;; js2-mode.el & js-mode
-;(autoload 'js-mode "js-mode" nil t)
 (when (require 'js2-mode nil t)
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
   (add-to-list 'auto-mode-alist '("Gruntfile". js2-mode))
@@ -127,10 +124,6 @@
 (autoload 'less-css-mode "less-css-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.less$'" . less-css-mode))
 
-;; po-mode
-(autoload 'po-mode "po-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.po$'" . po-mode))
-
 ;; close-all-buffers
 ;; from http://osdir.com/ml/emacs.windows/2006-05/msg00012.html
 (require 'cl)
@@ -153,7 +146,6 @@
 	    (setq web-mode-html-offset   2)
 	    (setq web-mode-css-offset    2)
 	    (setq web-mode-script-offset 2)))
-
 
 
 ;; start json-mode when the file name is manifest.webapp
