@@ -92,9 +92,6 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;; load-path setting
-(add-to-list 'load-path (expand-file-name "~/.emacs.d"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 
 ;; js2-mode.el & js-mode
 ;(autoload 'js-mode "js-mode" nil t)
