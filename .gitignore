@@ -2,3 +2,8 @@ auto-save-list/*
 lisp/
 elpa/
 .cask
+url/cookies
+
+recentf
+
+*.dat
