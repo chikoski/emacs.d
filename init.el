@@ -222,10 +222,6 @@
 (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
 
-;; magit
-(set-variable 'magit-emacsclient-executable "/usr/local/bin/emacsclient")
-(require 'magit)
-
 ;; typescript
 (require 'typescript)
 (setq typescript-indent-offset 2)

@@ -21,9 +21,6 @@
 ;; helm
 (depends-on "helm")
 
-;; magit
-(depends-on "magit")
-
 ;; auto-complete
 (depends-on "auto-complete")
 (depends-on "ac-helm")
