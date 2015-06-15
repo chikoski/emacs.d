@@ -142,10 +142,17 @@
 (autoload 'web-mode "web-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.html?$" . web-mode))
 (add-hook 'web-mode-hook
-	  (lambda ()
-	    (setq web-mode-html-offset   2)
-	    (setq web-mode-css-offset    2)
-	    (setq web-mode-script-offset 2)))
+          (lambda ()
+            (defun web-mode-indent (num)
+              (interactive "nIndent: ")
+              (setq web-mode-markup-indent-offset num)
+              (setq web-mode-css-indent-offset num)
+              (setq web-mode-style-padding num)
+              (setq web-mode-code-indent-offset num)
+              (setq web-mode-script-padding num)
+              (setq web-mode-block-padding num)
+              )
+            (web-mode-indent 2)))
 
 
 ;; start json-mode when the file name is manifest.webapp
@@ -221,6 +228,7 @@
 
 ;; typescript
 (require 'typescript)
+(setq typescript-indent-offset 2)
 
 ;;; apache-mode
 (autoload 'apache-mode "apache-mode" nil t)
@@ -236,3 +244,5 @@
 
 ;; disable dialog box, which force Emacs to be abort
 (setq use-dialog-box nil)
+
+;(mac-auto-ascii-mode 1)
