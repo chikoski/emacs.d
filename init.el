@@ -25,7 +25,7 @@
 ;; specify input method
 (setq default-input-method "MacOSX")
 
-;; hide menu 
+;; hide menu
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -78,7 +78,7 @@
 (setq-default tab-width 2)
 (setq default-tab-width 2)
 (setq tab-stop-list
-      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 
+      '(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32
           36 38 40 42 44 46 48 50 52 54 56 58 60 62
           64 66 68 70 72 74 76 78 80 82 84 86 88 90
           92 94 96 98 100 102 104 106 108 110 112 114 116 120))
@@ -99,7 +99,7 @@
         js2-mirror-mode nil
         js2-bounce-indent-flag nil)
 )
-  
+
 ;; graphviz-dot-mode.el
 (autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.dot$" . graphviz-dot-mode))
@@ -115,6 +115,11 @@
 ;; php-mode
 (autoload 'php-mode "php-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.php$'" . php-mode))
+(add-hook 'php-mode-hook
+          (lambda ()
+            (setq tab-width 2)
+            (setq c-basic-offset 2)
+            (setq indent-tabs-mode nil)))
 
 ;; css-mode
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
@@ -123,6 +128,9 @@
 ;; less-css-mode
 (autoload 'less-css-mode "less-css-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.less$'" . less-css-mode))
+(add-hook 'less-css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)))
 
 ;; close-all-buffers
 ;; from http://osdir.com/ml/emacs.windows/2006-05/msg00012.html
@@ -214,7 +222,7 @@
 (when (and (featurep 'auto-complete-config) (require 'ac-helm nil t))
   (global-set-key (kbd "C-:") 'ac-complete-with-helm)
   (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-helm))
-  
+
 ;; buffer autoreload
 (global-auto-revert-mode 1)
 
@@ -242,3 +250,13 @@
 (setq use-dialog-box nil)
 
 ;(mac-auto-ascii-mode 1)
+
+; remove trailing whitespaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq-default show-trailing-whitespace t)
+
+(c-set-offset 'case-label '+)
+(c-set-offset 'innamespace 0)
+
+(add-hook 'js2-mode-hook 'turn-on-auto-fill)
+(add-hook 'c++-mode-hook 'turn-on-auto-fill)
