@@ -1,6 +1,10 @@
 (require 'cask)
 (cask-initialize)
 
+;; pallet
+(require 'pallet)
+(pallet-mode t)
+
 ;; start server for emacsclient use
 (server-start)
 
