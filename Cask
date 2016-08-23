@@ -7,6 +7,7 @@
 (depends-on "async")
 (depends-on "auto-complete")
 (depends-on "cask")
+(depends-on "cmake-mode")
 (depends-on "dash")
 (depends-on "epl")
 (depends-on "f")
