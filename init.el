@@ -5,9 +5,6 @@
 (require 'pallet)
 (pallet-mode t)
 
-;; start server for emacsclient use
-(server-start)
-
 ;; an intractive function to kill all visited bufferes except *scratch*
 (defun kill-all-buffer ()
   (interactive)
@@ -245,10 +242,6 @@
 ;; scss-mode
 (require 'scss-mode)
 (setq scss-compile-at-save nil)
-
-;; emacsclient
-(unless (server-running-p)
-  (server-start))
 
 ;; disable dialog box, which force Emacs to be abort
 (setq use-dialog-box nil)
